@@ -1,16 +1,4 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import { useState } from 'react';
-
-const Spline = dynamic(() => import('@splinetool/react-spline').then(m => m.default), {
-  ssr: false
-});
-
 export default function HomePage() {
-  const [ready, setReady] = useState(false);
-
   return (
     <main className="min-h-screen flex flex-col">
       <header className="header-blur fixed inset-x-0 top-0 z-50">
@@ -48,26 +36,25 @@ export default function HomePage() {
             </div>
             <div className="mt-6 flex items-center gap-6 text-sm text-gray-500">
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-neon-green" style={{ backgroundColor: '#39FF14' }} />
-                <span>Realtime 3D</span>
+                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#39FF14' }} />
+                <span>Realtime systems</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-neon-blue" style={{ backgroundColor: '#00C2FF' }} />
-                <span>Mouse interactive</span>
+                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#00C2FF' }} />
+                <span>AI orchestration</span>
               </div>
             </div>
           </div>
 
           <div className="relative h-[380px] sm:h-[460px] md:h-[520px] lg:h-[640px] xl:h-[720px]">
             <div className="absolute inset-0 rounded-3xl border border-gray-200/70 bg-white/70 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-md overflow-hidden">
-              {!ready && (
-                <div className="absolute inset-0 grid place-items-center text-gray-500 text-sm">Loading 3D...</div>
-              )}
-              <div className="spline-wrapper absolute inset-0">
-                <Spline
-                  scene="https://prod.spline.design/OG17yM2eUIs8MUmA/scene.splinecode"
-                  onLoad={() => setReady(true)}
-                />
+              <div className="absolute inset-0">
+                <div className="h-full w-full">
+                  <div className="h-full w-full animate-pulse" style={{
+                    background:
+                      'radial-gradient(60% 60% at 70% 20%, rgba(57,255,20,0.25), transparent 60%), radial-gradient(50% 50% at 20% 30%, rgba(0,194,255,0.25), transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.9), rgba(243,244,246,0.9))'
+                  }} />
+                </div>
               </div>
             </div>
             <div className="pointer-events-none absolute -inset-8 -z-10 blur-2xl" aria-hidden>
@@ -92,7 +79,7 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold">Request a private demo</h2>
             <p className="mt-2 text-gray-600">Partner with Tesla to deploy humanoid robotics in your operations.</p>
           </div>
-          <form className="grid sm:grid-cols-3 gap-3">
+          <form className="grid sm:grid-cols-3 gap-3" method="post" action="#">
             <input required name="email" type="email" placeholder="Work email" className="sm:col-span-2 w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-sm outline-none focus:border-gray-400" />
             <button className="btn-primary" style={{ ['--btn-bg' as any]: '#39FF14' }}>Request access</button>
           </form>
