@@ -1,3 +1,5 @@
+import Hero3D from "@/components/Hero3D";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col">
@@ -37,26 +39,17 @@ export default function HomePage() {
             <div className="mt-6 flex items-center gap-6 text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#39FF14' }} />
-                <span>Realtime systems</span>
+                <span>Realtime 3D</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#00C2FF' }} />
-                <span>AI orchestration</span>
+                <span>Mouse interactive</span>
               </div>
             </div>
           </div>
 
           <div className="relative h-[380px] sm:h-[460px] md:h-[520px] lg:h-[640px] xl:h-[720px]">
-            <div className="absolute inset-0 rounded-3xl border border-gray-200/70 bg-white/70 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-md overflow-hidden">
-              <div className="absolute inset-0">
-                <div className="h-full w-full">
-                  <div className="h-full w-full animate-pulse" style={{
-                    background:
-                      'radial-gradient(60% 60% at 70% 20%, rgba(57,255,20,0.25), transparent 60%), radial-gradient(50% 50% at 20% 30%, rgba(0,194,255,0.25), transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.9), rgba(243,244,246,0.9))'
-                  }} />
-                </div>
-              </div>
-            </div>
+            <Hero3D scene="https://prod.spline.design/AeAqaKLmGsS-FPBN/scene.splinecode" />
             <div className="pointer-events-none absolute -inset-8 -z-10 blur-2xl" aria-hidden>
               <div className="h-full w-full rounded-[3rem] opacity-40" style={{
                 background:
